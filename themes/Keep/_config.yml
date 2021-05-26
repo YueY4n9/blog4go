@@ -4,7 +4,7 @@
 base_info:
   title: YueYang
   author: YueY4n9
-  url: https://keep.xpoet.cn/
+  url: http://8.141.163.144:8081/
   # Logo image (You can use local image, image external link or don’t fill)
   logo_img: /images/YueY4n9_LOGO.jpg
 
@@ -42,6 +42,7 @@ style:
     background_img: /images/bg.svg   # You can use local image or image external link
     description: TECH OTAKUS SAVE THE WORLD.
 
+
   # Scroll style settings
   scroll:
     progress_bar:
@@ -54,16 +55,12 @@ style:
 # Social contact link
 # ---------------------------------------------------------------------------------------
 social_contact:
-  enable: false
+  enable: true
   links:
-    github:          # your GitHub URL
-    weixin:          # your WeChat QR-Code URL
-    qq:              # your QQ QR-Code URL
-    weibo:           # your WeiBo URL
-    zhihu:           # your ZhiHu URL
-    twitter:         # your twitter URL
-    facebook:        # your facebook URL
-    email:           # your email
+    github:     https://github.com/YueY4n9
+    weixin:     /images/微信二维码.jpg
+    qq:         /images/QQ二维码.jpg
+    email:      YueY4n9@qq.com     # your email
 
 
 # ---------------------------------------------------------------------------------------
@@ -75,7 +72,6 @@ menu:
   类别: /categories
   标签: /tags
   关于: /about
-  Changelog: /changelog
   # ......
 
 
@@ -87,7 +83,7 @@ home_article:
     enable: true     # show category in home page article block
     limit: 3          # max number of categories shown in home page article block
   tag:
-    enable: false     # show tags in home page article block
+    enable: true     # show tags in home page article block
     limit: 5          # max number of tags shown in home page article block
 
 
@@ -126,13 +122,13 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: false
+  number: true
 
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: false
+  expand_all: true
 
   # If true, open TOC every time when you enter the article page
-  init_open: false
+  init_open: true
 
 
 # ---------------------------------------------------------------------------------------
@@ -149,9 +145,9 @@ website_count:
   # busuanzi
   # See: http://ibruce.info/2015/04/04/busuanzi/
   busuanzi_count:
-    enable: false
-    site_uv: false
-    site_pv: false
+    enable: true
+    site_uv: true
+    site_pv: true
     page_pv: false
 
 
