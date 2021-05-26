@@ -157,7 +157,7 @@ website_count:
 # See: https://github.com/theme-next/hexo-generator-searchdb
 # ---------------------------------------------------------------------------------------
 local_search:
-  enable: true
+  enable: false
   preload: true     # Preload the search data when the page loads
 
 
