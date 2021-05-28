@@ -28,15 +28,12 @@ In short, the microservice architectural(架构) style is an approach to develop
 ```
 
 - 官方定义:**微服务就是由一系列围绕自己业务开发的微小服务构成,他们独立部署运行在自己的进程里,基于分布式的管理**
-- 通俗定义:**微服务是一种架构，这种架构是将单个的整体应用程序分割成更小的项目关联的独立的服务。一个服务通常实现一组独立的特性或功能，包含自己的业务逻辑和适配器。各个微服务之间的关联通过暴露api来实现。这些独立的微服务不需要部署在同一个虚拟机，同一个系统和同一个应用服务器中。**
 
 ---
 
 ## 2.为什么是微服务?
 
 ### 单体应用
-
-![image-20200708224716035](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20200708224716035.png)
 
 ```markdown
 # 1.优点
@@ -50,10 +47,6 @@ In short, the microservice architectural(架构) style is an approach to develop
 
 ### 微服务架构应用
 
-
-
-![image-20210527110101855](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20210527110101855.png)
-
 ```markdown
 # 1.优点
 - 将服务拆分成多个单一职责的小的服务，进行单独部署，服务之间通过网络进行通信
@@ -65,76 +58,21 @@ In short, the microservice architectural(架构) style is an approach to develop
 - 服务治理 和 服务监控 关键
 ```
 
-### 架构的演变
-
-```markdown
-# 1.架构的演变过程
-- [单一应用架构] `===>` [垂直应用架构] `===>` [分布式服务架构] `===>` [流动计算架构]||[微服务架构] `===>` [未知]
-```
-
-- dubbo官网:http://dubbo.apache.org/zh-cn/docs/user/preface/background.html
-
-```markdown
-# 1. All in One Application 	单一架构
-- 起初当网站流量很小时,将所有功能都写在一个应用里面,对整个应用进行部署,以减少部署节点和成本。对于这个架构简化增删改查的工作量的数据访问框架（ORM）是关键。
-
-# 2. Vertical Application 		垂直架构
-- 当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，提升效率的方法之一是将应用拆成互不相干的几个应用，以提升效率。此时，用于加速前端页面开发的Web框架(MVC)是关键。
-
-# 3. Distributed Service    	分布式服务架构
-- 当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的分布式服务框架(RPC)是关键。
-
-# 4. Elastic Computing				流动计算架构即微服务架构
-- 当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)是关键
-```
-
-- 友情提醒: **好的架构并不是设计出来的,一定是进化来的!!!**
-
 ----
 
 ## 3.微服务的解决方案
 
 ```markdown
-# 1.Dubbo (阿里系)
-- 初出茅庐:2011年末，阿里巴巴在GitHub上开源了基于Java的分布式服务治理框架Dubbo，之后它成为了国内该类开源项目的佼佼者，许多开发者对其表示青睐。同时，先后有不少公司在实践中基于Dubbo进行分布式系统架构，目前在GitHub上，它的fork、star数均已破万。Dubbo致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案，使得应用可通过高性能RPC实现服务的输出、输入功能和Spring框架无缝集成。Dubbo包含远程通讯、集群容错和自动发现三个核心部分。
-
-- 停止维护:从2012年10月23日Dubbo 2.5.3发布后，在Dubbo开源将满一周年之际，阿里基本停止了对Dubbo的主要升级。只在之后的2013年和2014年更新过2次对Dubbo 2.4的维护版本，然后停止了所有维护工作。Dubbo对Srping的支持也停留在了Spring 2.5.6版本上。
-
-- 死而复生:多年漫长的等待，随着微服务的火热兴起，在国内外开发者对阿里不再升级维护Dubbo的吐槽声中，阿里终于开始重新对Dubbo的升级和维护工作。在2017年9月7日，阿里发布了Dubbo的2.5.4版本，距离上一个版本2.5.3发布已经接近快5年时间了。在随后的几个月中，阿里Dubbo开发团队以差不多每月一版本的速度开始快速升级迭代，修补了Dubbo老版本多年来存在的诸多bug，并对Spring等组件的支持进行了全面升级。
-
-- 2018年1月8日，Dubbo创始人之一梁飞在Dubbo交流群里透露了Dubbo 3.0正在动工的消息。Dubbo 3.0内核与Dubbo 2.0完全不同，但兼容Dubbo 2.0。Dubbo 3.0将以Streaming为内核，不再是Dubbo 时代的RPC，但是RPC会在Dubbo 3.0中变成远程Streaming对接的一种可选形态。从Dubbo新版本的路线规划上可以看出，新版本的Dubbo在原有服务治理的功能基础上，将全面拥抱微服务解决方案。
-
-- 结论:当前由于RPC协议、注册中心元数据不匹配等问题，在面临微服务基础框架选型时Dubbo与Spring Cloud是只能二选一，这也是为什么大家总是拿Dubbo和Spring Cloud做对比的原因之一。Dubbo之后会积极寻求适配到Spring Cloud生态，比如作为Spring Cloud的二进制通信方案来发挥Dubbo的性能优势，或者Dubbo通过模块化以及对http的支持适配到Spring Cloud。
-```
-
-```markdown
+# Dubbo (阿里系)
 # Spring Cloud:
 - Spring Cloud NetFlix  
-	基于美国Netflix公司开源的组件进行封装,提供了微服务一栈式的解决方案。
-
 - Spring Cloud alibaba
-	在Spring cloud netflix基础上封装了阿里巴巴的微服务解决方案。
-	
 - Spring Cloud Spring
-	目前spring官方趋势正在逐渐吸收Netflix组件的精华,并在此基础进行二次封装优化,打造spring专有的解决方案
 ```
 
 ## 4.什么是SpringCloud
 
-### 官方定义
-
-- 官方网址: https://cloud.spring.io/spring-cloud-static/Hoxton.SR5/reference/html/
-
-**Spring Cloud provides tools for developers to quickly build some of the common patterns in distributed systems** (e.g. `configuration management`,` service discovery`, `circuit breakers, intelligent routing, micro-proxy, control bus`). Coordination of distributed systems leads to boiler plate patterns, and using Spring Cloud developers can quickly stand up services and applications that implement those patterns.  -------[摘自官网]
-
-```markdown
-# 1.翻译
-- springcloud为开发人员提供了在分布式系统中快速构建一些通用模式的工具（例如配置管理、服务发现、断路器、智能路由、微代理、控制总线）。分布式系统的协调导致了锅炉板模式，使用springcloud开发人员可以快速地建立实现这些模式的服务和应用程序。
-
-# 2.通俗理解
-- springcloud是一个含概多个子项目的开发工具集,集合了众多的开源框架,他利用了Spring Boot开发的便利性实现了很多功能,如服务注册,服务注册发现,负载均衡等.SpringCloud在整合过程中主要是针对Netflix(耐非)开源组件的封装.SpringCloud的出现真正的简化了分布式架构的开发。NetFlix 是美国的一个在线视频网站,微服务业的翘楚,他是公认的大规模生产级微服务的杰出实践者,NetFlix的开源组件已经在他大规模分布式微服务环境中经过多年的生产实战验证,因此Spring Cloud中很多组件都是基于NetFlix
-spring netflix 维护  闭源
-```
+> springcloud是一个含概多个子项目的开发工具集,集合了众多的开源框架,他利用了Spring Boot开发的便利性实现了很多功能,如服务注册,服务注册发现,负载均衡等.SpringCloud在整合过程中主要是针对Netflix(耐非)开源组件的封装.SpringCloud的出现真正的简化了分布式架构的开发。NetFlix 是美国的一个在线视频网站,微服务业的翘楚,他是公认的大规模生产级微服务的杰出实践者,NetFlix的开源组件已经在他大规模分布式微服务环境中经过多年的生产实战验证,因此Spring Cloud中很多组件都是基于NetFlix
 
 ### 核心架构及其组件
 
@@ -146,7 +84,6 @@ spring netflix 维护  闭源
 - zuul、gateway 					 服务网关组件
 - config 						  统一配置中心组件
 - bus                             消息总线组件
-......
 ```
 
 ---
@@ -155,35 +92,17 @@ spring netflix 维护  闭源
 
 ### 版本命名
 
-- 官网地址:https://spring.io/projects/spring-cloud
-
-Spring Cloud is an umbrella(伞) project consisting of independent projects with, in principle, different release cadences. To manage the portfolio a BOM (Bill of Materials) is published with a curated set of dependencies on the individual project (see below). The release trains have names, not versions, to avoid confusion with the sub-projects. The names are an alphabetic sequence (so you can sort them chronologically) with names of London Tube stations ("Angel" is the first release, "Brixton" is the second). When point releases of the individual projects accumulate to a critical mass, or if there is a critical bug in one of them that needs to be available to everyone, the release train will push out "service releases" with names ending ".SRX", where "X" is a number.     ---[摘自官网]
-
 ```markdown
-# 1.翻译
-- springcloud是一个由众多独立子项目组成的大型综合项目，原则每个子项目上有不同的发布节奏,都维护自己发布版本号。为了更好的管理springcloud的版本,通过一个资源清单BOM(Bill of Materials),为避免与子项目的发布号混淆，所以没有采用版本号的方式，而是通过命名的方式。这些名字是按字母顺序排列的。如伦敦地铁站的名称（“天使”是第一个版本，“布里斯顿”是第二个版本,"卡姆登"是第三个版本）。当单个项目的点发布累积到一个临界量，或者其中一个项目中有一个关键缺陷需要每个人都可以使用时，发布序列将推出名称以“.SRX”结尾的“服务发布”，其中“X”是一个数字。
-
-# 2.伦敦地铁站名称 [了解]
+# 伦敦地铁站名称 [了解]
 - Angel、Brixton、Camden、Dalston、Edgware、Finchley、Greenwich、Hoxton
 ```
 
 ### 版本选择
 
 ```markdown
-# 1.版本选择官方建议 https://spring.io/projects/spring-cloud
-- Angel 										版本基于springboot1.2.x版本构建与1.3版本不兼容
-- Brixton										版本基于springboot1.3.x版本构建与1.2版本不兼容
-	`2017年Brixton and Angel release官方宣布报废
-- Camden      							版本基于springboot1.4.x版本构建并在1.5版本通过测试
-	`2018年Camden release官方宣布报废
-- Dalston、Edgware 				 版本基于springboot1.5.x版本构建目前不能再springboot2.0.x版本中使用
-	`Dalston(达尔斯顿)将于2018年12月官方宣布报废。Edgware将遵循Spring Boot 1.5.x的生命周期结束。
 - Finchley 									版本基于springboot2.0.x版本进行构建,不能兼容1.x版本
 - Greenwich									版本基于springboot2.1.x版本进行构建,不能兼容1.x版本
 - Hoxton									版本基于springboot2.2.x版本进行构建
-
-
-Spring Cloud Dalston, Edgware, Finchley, and Greenwich have all reached end of life status and are no longer supported.
 ```
 
 ### 环境搭建
@@ -248,167 +167,11 @@ springcloud支持的多种注册中心Eureka、Consul、Zookeeper、以及阿里
 #### 1.Eureka
 
 ```markdown
-# 0.简介
-- https://github.com/Netflix/eureka/wiki
 - Eureka是Netflix开发的服务发现框架，本身是一个基于REST的服务。SpringCloud将它集成在其子项目spring-cloud-netflix中，		以实现SpringCloud的服务注册和发现功能。
-	Eureka包含两个组件：Eureka Server和Eureka Client。
+- Eureka包含两个组件：Eureka Server和Eureka Client。
 ```
 
-##### 开发Eureka Server
-
-```markdown
-# 1.创建项目并引入eureka server依赖
-```
-
-```xml
-<!--引入 eureka server-->
-<dependency>
-  <groupId>org.springframework.cloud</groupId>
-  <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-</dependency>
-```
-
-```markdown
-# 2.编写配置application.properties
-```
-
-```properties
-server.port=8761																			#执行服务端口
-spring.application.name=eurekaserver 									#指定服务名称 唯一标识
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka  #指定服务注册中心的地址
-```
-
-```markdown
-# 3.开启Eureka Server,入口类加入注解
-```
-
-```java
-@SpringBootApplication
-@EnableEurekaServer
-public class Eurekaserver8761Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Eurekaserver8761Application.class, args);
-    }
-}
-```
-
-```markdown
-# 4.访问Eureka的服务注册页面
-- http://localhost:8761/eureka
-```
-
-```markdown
-# 5.虽然能看到管理界面为什么项目启动控制台报错?
-```
-
-```markdown
-- 出现上述问题原因:eureka组件包含 eurekaserver 和 eurekaclient。server是一个服务注册中心,用来接受客户端的注册。client的特性会让当前启动的服务把自己作为eureka的客户端进行服务中心的注册,当项目启动时服务注册中心还没有创建好,所以找我不到服务的客户端组件就直接报错了，当启动成功服务注册中心创建好了，日后client也能进行注册，就不再报错啦！
-```
-
-```markdown
-# 6.关闭Eureka自己注册自己
-```
-
-```properties
-server.port=8761
-spring.application.name=eurekaserver
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka
-eureka.client.register-with-eureka=false    #不再将自己同时作为客户端进行注册  
-eureka.client.fetch-registry=false				  #关闭作为客户端时从eureka server获取服务信息
-```
-
-```markdown
-# 7.再次启动,当前应用就是一个单纯Eureka Server,控制器也不再报错
-```
-
-##### 开发Eureka Client
-
-```markdown
-# 1.创建项目并引入eureka client依赖
-```
-
-```xml
-<!--引入eureka client-->
-<dependency>
-  <groupId>org.springframework.cloud</groupId>
-  <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-</dependency>
-```
-
-```markdown
-# 2.编写配置application.properties
-```
-
-```properties
-server.port=8888																		#服务端口号
-spring.application.name=eurekaclient8888						#服务名称唯一标识
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka #eureka注册中心地址
-```
-
-```markdown
-# 3.开启eureka客户端加入注解
-```
-
-```java
-@SpringBootApplication
-@EnableEurekaClient
-public class Eurekaclient8888Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Eurekaclient8888Application.class, args);
-    }
-}
-```
-
-```markdown
-# 4.启动之前的8761的服务注册中心,在启动eureka客户端服务
-```
-
-```markdown
-# 5.查看eureka server的服务注册情况
-```
-
-##### eureka自我保护机制
-
-```markdown
-# 0.服务频繁启动时 EurekaServer出现错误
-- EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.
-```
-
-```markdown
-# 1.自我保护机制
-- 官网地址: https://github.com/Netflix/eureka/wiki/Server-Self-Preservation-Mode
-- 默认情况下，如果Eureka Server在一定时间内（默认90秒）没有接收到某个微服务实例的心跳，Eureka Server将会移除该实例。但是当网络分区故障发生时，微服务与Eureka Server之间无法正常通信，而微服务本身是正常运行的，此时不应该移除这个微服务，所以引入了自我保护机制。Eureka Server在运行期间会去统计心跳失败比例在 15 分钟之内是否低于 85%，如果低于 85%，Eureka Server 会将这些实例保护起来，让这些实例不会过期。这种设计的哲学原理就是"宁可信其有不可信其无!"。自我保护模式正是一种针对网络异常波动的安全保护措施，使用自我保护模式能使Eureka集群更加的健壮、稳定的运行。
-
-# 2.在eureka server端关闭自我保护机制
-```
-
-```properties
-eureka.server.enable-self-preservation=false  #关闭自我保护
-eureka.server.eviction-interval-timer-in-ms=3000 #超时3s自动清除
-```
-
-```markdown
-# 3.微服务修改减短服务心跳的时间
-```
-
-```properties
-eureka.instance.lease-expiration-duration-in-seconds=10 #用来修改eureka server默认接受心跳的最大时间 默认是90s
-eureka.instance.lease-renewal-interval-in-seconds=5     #指定客户端多久向eureka server发送一次心跳 默认是30s
-```
-
-```markdown
-# 4.尽管如此关闭自我保护机制还是会出现警告
-- THE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.
-- `官方并不建议在生产情况下关闭
-```
-
-##### eureka 停止更新
-
-```markdown
-# 1.官方停止更新说明
-- https://github.com/Netflix/eureka/wiki
-- 在1.x版本项目还是活跃的,但是在2.x版本中停止维护,出现问题后果自负!!!
-```
+##### Eureka 停止更新不推荐使用了
 
 #### 2.Consul
 
@@ -423,30 +186,12 @@ eureka.instance.lease-renewal-interval-in-seconds=5     #指定客户端多久�
 ```markdown
 # 1.下载consul
 - https://www.consul.io/downloads
-```
-
-```markdown
 # 2.安装consul
-- 官方安装视频地址: https://learn.hashicorp.com/consul/getting-started/install.html
-- 1.解压之后发现consul只有一个脚本文件
-```
-
-```markdown
 # 3.根据解压缩目录配置环境变量
-- 根据安装目录进行环境变量配置 [这里是macos和linux系统配置]
-```
-
-```markdown
 # 4.查看consul环境变量是否配置成功,执行命令出现如下信息代表成功
 - consul -v
-```
-
-```markdown
 # 5.启动consul服务
 - consul agent -dev
-```
-
-```markdown
 # 6.访问consul的web服务端口
 - http://localhost:8500
 	`consul默认服务端口是8500
@@ -456,31 +201,18 @@ eureka.instance.lease-renewal-interval-in-seconds=5     #指定客户端多久�
 
 ```markdown
 # 1.创建项目并引入consul客户端依赖
-```
-
-```xml
- <!--引入consul依赖-->
+<!--引入consul依赖-->
 <dependency>
   <groupId>org.springframework.cloud</groupId>
   <artifactId>spring-cloud-starter-consul-discovery</artifactId>
 </dependency>
-```
-
-```markdown
 # 2.编写properties配置
-```
-
-```properties
 server.port=8889
 spring.application.name=consulclient8889
 spring.cloud.consul.host=localhost														#注册consul服务的主机
 spring.cloud.consul.port=8500																	#注册consul服务的端口号
-spring.cloud.consul.discovery.register-health-check=false	    #关闭consu了服务的健康检查[不推荐]
-spring.cloud.consul.discovery.service-name=${spring.application.name} #指定注册的服务名称 默认就是应用名
-```
-
-```markdown
 # 3.启动服务查看consul界面服务信息
+- 访问localhost:8500
 ```
 
 ##### consul 开启健康监控检查
@@ -488,9 +220,6 @@ spring.cloud.consul.discovery.service-name=${spring.application.name} #指定注
 ```markdown
 # 1.开启consul健康监控
 - 默认情况consul监控健康是开启的,但是必须依赖健康监控依赖才能正确监控健康状态所以直接启动会显示错误,引入健康监控依赖之后服务正常
-```
-
-```xml
 <!-- 这个包是用做健康度监控的-->
 <dependency>
   <groupId>org.springframework.boot</groupId>
@@ -501,10 +230,6 @@ spring.cloud.consul.discovery.service-name=${spring.application.name} #指定注
 ##### consul 关闭健康监控检查
 
 ```properties
-server.port=8889
-spring.application.name=consulclient8889
-spring.cloud.consul.host=localhost														#注册consul服务的主机
-spring.cloud.consul.port=8500																	#注册consul服务的端口号
 spring.cloud.consul.discovery.register-health-check=false	    						#关闭consu了服务的健康检查[不推荐]
 spring.cloud.consul.discovery.service-name=${spring.application.name} 					#指定注册的服务名称 默认就是应用名
 ```
@@ -517,7 +242,7 @@ spring.cloud.consul.discovery.service-name=${spring.application.name} 					#指�
 	`一致性（C）：在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）
 	`可用性（A）：在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。（对数据更新具备高可用性）
 	`分区容忍性（P），就是高可用性，一个节点崩了，并不影响其它的节点（100个节点，挂了几个，不影响服务，越多机器越好）
-	
+
 # 2.Eureka特点
 - Eureka中没有使用任何的数据强一致性算法保证不同集群间的Server的数据一致，仅通过数据拷贝的方式争取注册中心数据的最终一致性，虽然放弃数据强一致性但是换来了Server的可用性，降低了注册的代价，提高了集群运行的健壮性。
 
@@ -536,7 +261,7 @@ spring.cloud.consul.discovery.service-name=${spring.application.name} 					#指�
 
 接下来在整个微服务架构中,我们比较关心的就是服务间的服务改如何调用,有哪些调用方式?
 
-> 总结:`在springcloud中服务间调用方式主要是使用 http restful方式进行服务间调用`
+> 在springcloud中服务间调用方式主要是使用 http restful方式进行服务间调用
 
 ### 基于RestTemplate的服务调用
 
@@ -597,14 +322,8 @@ public class UserController {
 
 ```markdown
 # 4.启动服务
-```
-
-```markdown
 # 5.测试服务调用
 - 浏览器访问用户服务 http://localhost:9999/user/findAll
-```
-
-```markdown
 # 6.总结
 - rest Template是直接基于服务地址调用没有在服务注册中心获取服务,也没有办法完成服务的负载均衡如果需要实现服务的负载均衡需要自己书写服务负载均衡策略。
 ```
