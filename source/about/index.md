@@ -15,6 +15,8 @@ date: 2021-05-26 14:43:10
 
 期望岗位：Java研发工程师
 
+电子简历：http://8.141.63.144:8080/
+
 # 专业技能
 
 - Java：`SpringBoot`，`SpringCloud`，`MyBatis`，
