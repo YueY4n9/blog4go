@@ -282,6 +282,72 @@ nums2[0] = 100
 fmt.Println(b1, b2) // [1, 2, 3] [100, 2, 3]
 ```
 
+### 切片
+
+切片`Slice`是一个拥有相通类型元素的可变长度的序列
+
+```go
+var nums1 []int
+var nums2 []int
+fmt.Println(nums1 == nil) // true
+fmt.Println(nums2 == nil) // true
+nums1 = []int{1, 2, 3}
+nums2 = []int{4, 5, 6, 7}
+fmt.Println(nums1 == nil) // false
+fmt.Println(nums2 == nil) // false
+```
+
+#### 长度和容量
+
+```go
+nums1 := []int{1, 3, 5, 7} // 切片
+nums2 := [7]int{0, 1, 2, 3, 4, 5, 6} // 数组
+fmt.Printf("%d %d\n", len(nums1), cap(nums1))
+```
+
+#### 由数组得到切片
+
+```go
+nums1 := [7]int{0, 1, 2, 3, 4, 5, 6} // 数组
+nums2 := nums1[0, 4] // [0, 1, 2, 3] // 数组得到切片，左闭右开
+nums3 := nums1[1:]
+nums4 := nums1[:4]
+nums5 := nums1[:]
+```
+
+> 1、切片是引用类型，真正的数组都是保存在底层的数组里。
+>
+> 2、一个`nil`的切片是没有底层数组的。
+>
+> 3、判断切片为空应该判断`len() == 0`
+
+#### make函数
+
+```go
+nums1 := make([]int, 5, 10) // 参数：切片类型，长度，容量
+```
+
+#### append函数
+
+```go
+nums1 := []int{1, 2, 3}
+nums1[3] = 4 // 错误写法，切片超过容量导致编译错误：索引越界
+fmt.Println(nums1)
+
+// append函数
+fmt.Println("%v %d %d", nums1, len(nums1), cap(nums1)) // [1, 2, 3] len=3 cap=3
+nums1 = append(nums1, 4) // 调用append函数必须用原来的切片变量接收返回值
+fmt.Println("%v %d %d", nums1, len(nums1), cap(nums1)) // [1, 2, 3, 4] len=4 cap=6
+```
+
+> 调用append函数必须用原来的切片变量接收返回值，底层涉及到数组的重新分配内存空间
+
+注意事项：
+
+- 
+
+
+
 
 
 ## fmt包
@@ -381,4 +447,3 @@ switch 初始化; 值{
 `<<`左移
 
 `>>`右移
-
