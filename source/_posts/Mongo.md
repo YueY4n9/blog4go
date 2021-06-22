@@ -1,5 +1,5 @@
 ---
-title: 非关系型数据库MongoDB基本SQL操作
+title: MongoDB
 date: 2020-08-27 16:29:24
 tags:
 - MongoDB

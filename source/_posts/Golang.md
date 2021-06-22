@@ -26,6 +26,7 @@ tags:
 - 天生支持并发
 - 企业级编程语言（Golang、Java）
 - 面向薪资编程（？）
+- 零值机制：l天生就有初始值，不用考虑空值情况
 
 ### 命令
 
@@ -447,3 +448,190 @@ switch 初始化; 值{
 `<<`左移
 
 `>>`右移
+
+## 指针
+
+取地址操作符`&`
+
+取值操作符`*`
+
+注意事项：
+
+-   引用类型变量不仅要声明还要分配内存空间
+
+那么就引入了两个初始化方式`new` `make`
+
+### new函数
+
+`new`函数不太常用
+
+```go
+func new(Type) *Type // 接收一个类型，返回该类型的指针
+```
+
+### make函数
+
+make也是用于内存分配的，区别于new，make函数只作用于slice、map、chan类型的内存创建，由于这些类型本身就是引用类型，make返回的就是类型本身。
+
+```go
+func make(t Type, size ...IntegerType) Type // 接收一个类型和容量大小，返回类型本身
+```
+
+make函数是不可替代的函数，slice、map、chan都需要make函数初始化才能进行操作。
+
+### new和make
+
+1.  两者都是用来创建内存的
+2.  new用于类型的内存分配，内存对应的值为类型的零值，返回的是指向类型的指针
+3.  make作用于slice、map、chan类型，返回类型本身
+
+## 结构体
+
+### 自定义类型
+
+类型定义和类型别名
+
+```go
+// 类型定义
+type NewInt int
+// 类型别名
+type MyInt = int
+
+func main(){
+    var a NewInt
+    var b MyInt
+    fmt.Println("%T", a) // main.NewInt
+    fmt.Println("%T", b) // int
+}
+```
+
+### 结构体
+
+Go语言通过`struct`来面向对象
+
+```go
+type 类型名 struct{
+    字段名 字段类型
+    字段名 字段类型
+    ...
+}
+```
+
+### 结构体实例化
+
+```go
+type Person struct{
+    name string
+    age int8
+}
+
+func main()  {
+	var person Person
+	person.name = "yueyang"
+	person.age = 24
+    fmt.Printf("%v\n", person) // {yueyang, 24}
+    fmt.Printf("%#v\n", person) // main.Person{name:"yueyang", age:24}
+}
+```
+
+### 匿名结构体
+
+```go
+func main() {
+	var user struct{Name string; Age int}
+	user.Name = "yueyang"
+	user.Age = 24
+	fmt.Printf("%#v\n", user) // struct { Name string; Age int }{Name:"yueyang", Age:24}
+}
+```
+
+### 结构体指针
+
+```go
+func main(){
+    var person = new(Person)
+    fmt.Printf()
+}
+```
+
+# 2、Golang标准库
+
+
+
+## strconv
+
+### Atoi()
+
+```go
+// 将字符串转换成整形
+func Atoi(s string)(int, error)
+```
+
+### Itoa()
+
+```go
+// 将整形转换成字符串
+func Itoa(i int) string
+```
+
+### ParseBool()
+
+```go
+// 解析字符串成布尔类型, 可以接受1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False; 否则返回错误
+func ParseBool(value string)(bool, error)
+```
+
+### ParseInt()
+
+```go
+// 解析整形
+// s: 要解析的字符串
+// base: 指定进制数（2到36）
+// bitSize: 要转换的无溢出整形类型0、8、16、32、64分别代表int、int8、int16、int32、int64
+func ParseInt(s string, base int, bitSize int) (i int64, err error)
+```
+
+### ParseUnit()
+
+```go
+// 类似于ParseInt(), 区别在于不能接受正负号, 返回uint
+func ParseUint(s string, base int, bitSize int) (uint64, error)
+```
+
+### ParseFloat()
+
+```go
+// 类似于ParseInt(), 函数会返回最为接近s表示值的一个浮点数（使用IEEE754规范舍入）
+func ParseFloat(s string, bitSize int) (float64, error)
+```
+
+### FormatBool()
+
+```go
+// 返回字符串true或者false
+func FormatBool(b bool) string
+```
+
+### FormatInt()
+
+```go
+// 返回i的base进制的字符串
+func FormatInt(i int64, base int) string
+```
+
+### FormatUint()
+
+```go
+// FormatInt()的无符号整数版本
+func FormatUint(i uint64, base int) string
+```
+
+### FormatFloat()
+
+```go
+// fmt表示格式：’f’（-ddd.dddd）、’b’（-ddddp±ddd，指数为二进制）、’e’（-d.dddde±dd，十进制指数）、’E’（-d.ddddE±dd，十进制指数）、’g’（指数很大时用’e’格式，否则’f’格式）、’G’（指数很大时用’E’格式，否则’f’格式）。
+func FormatFloat(f float64, fmt byte, prec, bitSize int) string
+```
+
+
+
