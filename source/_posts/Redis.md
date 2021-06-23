@@ -21,8 +21,6 @@ tags:
 
 ## 2. 什么是Redis
 
-![image-20200623121234046](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CStudyNote%5Cimg%5Cimage-20200623121234046.png)
-
 > Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.
 
 Redis 开源  遵循BSD  基于内存数据存储 被用于作为 数据库 缓存  消息中间件
@@ -297,8 +295,6 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 
 这种方式可以将某一时刻的所有数据都写入硬盘中,当然这也是**redis的默认开启持久化方式**,保存的文件是以.rdb形式结尾的文件因此这种方式也称之为RDB方式。
 
-![image-20210527104919720](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20210527104919720.png)
-
 #### 2.快照生成方式
 
 - 客户端方式: BGSAVE 和 SAVE指令
@@ -311,14 +307,10 @@ Redis官方提供了两种不同的持久化方法来将数据存储到硬盘里
 	`名词解释: fork当一个进程创建子进程的时候,底层的操作系统会创建该进程的一个副本,在类unix系统中创建子进程的操作会进行优化:在刚开始的时候,父子进程共享相同内存,直到父进程或子进程对内存进行了写之后,对被写入的内存的共享才会结束服务`
 ```
 
-![image-20210527104955987](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20210527104955987.png)
-
 ```markdown
 # 2.客户端方式之SAVE
 - b.客户端还可以使用SAVE命令来创建一个快照,接收到SAVE命令的redis服务器在快照创建完毕之前将不再响应任何其他的命令
 ```
-
-![image-20210527105031029](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20210527105031029.png)
 
 - **注意: SAVE命令并不常用,使用SAVE命令在快照创建完毕之前,redis处于阻塞状态,无法对外服务**
 
@@ -572,11 +564,7 @@ spring.redis.database=0
 
 **无法解决: 1.master节点出现故障的自动故障转移**
 
-### 7.2 主从复制架构图
-
-<img src="C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CStudyNote%5Cimg%5Cimage-20210527105446174.png" alt="image-20210527105446174" style="zoom:50%;" />
-
-### 7.3 搭建主从复制
+### 7.2 搭建主从复制
 
 ```markdown
 # 1.准备3台机器并修改配置
@@ -613,11 +601,7 @@ Sentinel（哨兵）是Redis 的高可用性解决方案：由一个或多个Sen
 
 **无法解决: 1.单节点并发压力问题   2.单节点内存和磁盘物理上限**
 
-### 8.2 哨兵架构原理
-
-![image-20210527105524367](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CStudyNote%5Cimg%5Cimage-20210527105524367.png)
-
-### 8.3 搭建哨兵架构
+### 8.2 搭建哨兵架构
 
 ```markdown
 # 1.在主节点上创建哨兵配置
@@ -631,7 +615,7 @@ Sentinel（哨兵）是Redis 的高可用性解决方案：由一个或多个Sen
 	说明:这个后面的数字2,是指当有两个及以上的sentinel服务检测到master宕机，才会去执行主从切换的功能。
 ```
 
-### 8.4 通过springboot操作哨兵
+### 8.3 通过springboot操作哨兵
 
 ```properties
 # redis sentinel 配置
@@ -658,8 +642,6 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 - 客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可
 - redis-cluster把所有的物理节点映射到[0-16383]slot上,cluster 负责维护node<->slot<->value
 ```
-
-![image-20210527105807666](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20210527105807666.png)
 
 ### 9.3 集群搭建
 
@@ -790,8 +772,6 @@ Redis在3.0后开始支持Cluster(模式)模式,目前redis的集群支持节点
 
 **redis的session管理是利用spring提供的session管理解决方案,将一个应用session交给Redis存储,整个应用中所有session的请求都会去redis中获取对应的session数据。**
 
-![image-20210527105833035](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CStudyNote%5Cimg%5Cimage-20210527105833035.png)
-
 ### 10.2 开发Session管理
 
 #### 1. 引入依赖
@@ -888,8 +868,6 @@ public class RedisSessionManager {
 4. bgsave执行完毕之后，发送RDB文件到slave，slave执行
 5. master发送缓存中的写命令到slave，slave执行
 ```
-
-![image-20210527105912450](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CWeiBo%5Csource%5Cnotes%5Cimages%5Cimage-20210527105912450.png)
 
 ```markdown
 # 哨兵模式
