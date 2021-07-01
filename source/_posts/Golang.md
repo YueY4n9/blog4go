@@ -635,3 +635,43 @@ func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 
 
 
+# 项目
+
+api/http/v1： `handler.go`定义uri与代码的映射、入参校验，调用`Service层`的逻辑写在这里面；`validation.go`定义入参校验的结构体
+
+context：`config.go`、`context,go`配置文件
+
+domain：`domain.go`实现`interface.go`，
+
+microservice：未知
+
+model：未知
+
+router：路由层，程序启动时初始化用到的`路由层`
+
+service：`service.go`实现`interface.go`，service.go里写逻辑调用的其他模块的一个service结构体，实现调用`数据层`的所有逻辑，数据层包含`domain`和`entity`两部分，分别代表DAO层和Entity层，把domain下来操作数据库，得到entity，entity来获取数据库实例中具体信息
+
+>   总结：handle层→service层→domain层
+
+
+
+# 命名规范与开发规范
+
+## 命名
+
+### 文件命名
+
+文件命名一律采用小写，不用驼峰式，尽量见名思义，看见文件名就可以知道这个文件下的大概内容。
+其中测试文件以`test.go`结尾，除测试文件外。
+
+举例：
+
+>domain.go
+>
+>workflow.go
+>
+>stringutils.go
+
+### 包命名
+
+包名使用小写，
