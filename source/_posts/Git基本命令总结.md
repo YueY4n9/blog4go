@@ -213,3 +213,13 @@ git pull origin master
 
 git push -u origin master
 ```
+
+### rebase操作
+
+首先，说明一下rebase的作用：将目标分支的开发呈现一条直线，没有其他分支合并进来的节点，展示起来比较清晰。
+
+那么能具体介绍一下吗？
+
+OK！
+
+现在假设`origin/master`分支是主分支，当前`origin/master`版本为`A`，那么我从`origin/master`拉下来的本地分支`local/master`的版本也是`A`，此时，同事小赵提交一次提交，合并到`origin/master`，使

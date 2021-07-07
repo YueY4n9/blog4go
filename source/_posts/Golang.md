@@ -633,6 +633,18 @@ func FormatUint(i uint64, base int) string
 func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 ```
 
+# 3、异常
+
+>   go中追求简洁优雅，使用多返回值来返回错误解决异常情况。只有在除数为零时，才会真正的使用异常机制，`defer`、`panic`、`recover`
+
+底层实现看[这篇文章](https://blog.csdn.net/shidantong/article/details/106341159)
+
+
+
+
+
+
+
 
 
 # 项目
