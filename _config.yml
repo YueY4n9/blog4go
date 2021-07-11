@@ -5,11 +5,11 @@
 # Site
 title: YueYang
 subtitle: 岳杨的个人博客
-description: 
+description: 一位热爱技术的劣质程序猿的程序人生
 keywords:
 author: YueY4n9
-language: en
-timezone: ''
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -62,7 +62,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 2
   order_by: -date
 
 # Category & Tag

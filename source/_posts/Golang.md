@@ -639,6 +639,52 @@ func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 
 底层实现看[这篇文章](https://blog.csdn.net/shidantong/article/details/106341159)
 
+>   调用 defer 关键字会立刻对函数中引用的外部参数进行拷贝
+
+
+
+# 4、Golang第三方包
+
+## github.com/gin-gonic/gin
+
+gin包提供golang一个基本web框架
+
+gin.Context实现了Golang标准库中的net/http下Handler接口中的唯一方法ServeHttp(ReponseWriter, \*Request)
+
+```go
+// A Handler responds to an HTTP request.
+//
+// ServeHTTP should write reply headers and data to the ResponseWriter
+// and then return. Returning signals that the request is finished; it
+// is not valid to use the ResponseWriter or read from the
+// Request.Body after or concurrently with the completion of the
+// ServeHTTP call.
+//
+// Depending on the HTTP client software, HTTP protocol version, and
+// any intermediaries between the client and the Go server, it may not
+// be possible to read from the Request.Body after writing to the
+// ResponseWriter. Cautious handlers should read the Request.Body
+// first, and then reply.
+//
+// Except for reading the body, handlers should not modify the
+// provided Request.
+//
+// If ServeHTTP panics, the server (the caller of ServeHTTP) assumes
+// that the effect of the panic was isolated to the active request.
+// It recovers the panic, logs a stack trace to the server error log,
+// and either closes the network connection or sends an HTTP/2
+// RST_STREAM, depending on the HTTP protocol. To abort a handler so
+// the client sees an interrupted response but the server doesn't log
+// an error, panic with the value ErrAbortHandler.
+type Handler interface {
+	ServeHTTP(ResponseWriter, *Request)
+}
+```
+
+这是Golang实现WebService最基础的接口，通过实现其方法来
+
+
+
 
 
 
