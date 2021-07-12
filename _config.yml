@@ -5,7 +5,7 @@
 # Site
 title: YueYang
 subtitle: 岳杨的个人博客
-description: 一位热爱技术的劣质程序猿的程序人生
+description: 一位记录程序人生的劣质程序猿
 keywords:
 author: YueY4n9
 language: zh-CN
@@ -109,3 +109,16 @@ search:
   field: all
   content: true
   limit: 9999
+
+# 看板娘功能
+live2d:
+    enable: true
+    scriptFrom: local
+    model: 
+        use: live2d-widget-model-haruto #模型选择
+    display: 
+        position: right  #模型位置
+        width: 150       #模型宽度
+        height: 300      #模型高度
+    mobile: 
+        show: true      #是否在手机端显示

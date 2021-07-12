@@ -1,5 +1,5 @@
 ---
-title: @PerAuthorize用作授权时的使用方法
+title: PerAuthorize注解的作用作授权时的使用方法
 date: 2020-08-14 10:14:07
 tags:
 - Spring
