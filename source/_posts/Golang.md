@@ -7,6 +7,8 @@ tags:
 
 > 本文目的是记录好Java开发转Golang开发的经历，分享一下学习过程来帮助想要Java转Golang的朋友一起进步一起学习！
 
+<!--more--> 
+
 # 0、安装配置
 
 下载地址：https://golang.google.cn/dl/

@@ -175,3 +175,7 @@ creative_commons:
   version: 2020.11.3
   dir: assets/license_badges
   alias: creativecommons-vocabulary
+darkmode_js:
+  name: darkmode-js
+  version: 1.5.7
+  file: lib/darkmode-js.min.js

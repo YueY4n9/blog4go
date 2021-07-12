@@ -8,6 +8,7 @@ $scheme = hexo-config('scheme') ? hexo-config('scheme') : 'Muse';
 // --------------------------------------------------
 @import '_variables/base';
 @import '_variables/' + $scheme;
+
 for $inject_variable in hexo-config('injects.variable')
   @import $inject_variable;
 

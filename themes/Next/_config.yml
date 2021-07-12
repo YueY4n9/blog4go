@@ -41,8 +41,7 @@ custom_file_path:
 #scheme: Pisces
 scheme: Gemini
 
-# Dark Mode 夜间模式
-# TODO 做成动态切换
+# 夜间模式切换功能
 darkmode: false
 
 
@@ -116,7 +115,7 @@ sidebar:
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  totally remove sidebar including sidebar toggle.
-  display: post
+  display: hide
 
   # Sidebar padding in pixels.
   padding: 18
@@ -128,7 +127,7 @@ avatar:
   # Replace the default image and set the url here.
   url: /images/YueY4n9_LOGO.jpg
   # If true, the avatar will be dispalyed in circle.
-  rounded: false
+  rounded: true
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -181,8 +180,8 @@ toc:
 # A button to open designated chat widget in sidebar.
 # Firstly, you need enable the chat service you want to activate its sidebar button.
 chat:
-  enable: false
-  #service: chatra
+  enable: true
+  # service: chatra
   #service: tidio
   icon: fa fa-comment # Icon name in Font Awesome, set false to disable icon.
   text: Chat # Button text, change it as you wish.
@@ -194,7 +193,7 @@ chat:
 # ---------------------------------------------------------------
 
 # Show multilingual switcher in footer.
-language_switcher: false
+language_switcher: true
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
@@ -233,7 +232,12 @@ footer:
 # ---------------------------------------------------------------
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: true
+# excerpt_description: true
+# Automatically excerpt (Not recommend).首页显示阅读全文
+# Use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: true
+  length: 150 #默认截取全文开篇前150字，可自行修改
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -942,6 +946,12 @@ vendors:
 
   # Canvas ribbon
   canvas_ribbon:
+
+  darkmode_js: https://cdn.jsdelivr.net/npm/darkmode-js/lib/darkmode-js.min.js
+
+# darkmode.js
+darkmode_js: 
+  enable: true
 
 # Assets
 # Accelerate delivery of static files using a CDN
