@@ -5,7 +5,9 @@ tags:
 - Golang
 ---
 
-> 本文目的是记录好Java开发转Golang开发的经历，分享一下学习过程来帮助想要Java转Golang的朋友一起进步一起学习！
+# 前言
+
+> 本文目的是记录我从Java开发转Golang开发的学习经历，分享一下学习过程来帮助想要Java转Golang的朋友一起进步一起学习！
 
 <!--more--> 
 
@@ -27,8 +29,7 @@ tags:
 
 - 天生支持并发
 - 企业级编程语言（Golang、Java）
-- 面向薪资编程（？）
-- 零值机制：l天生就有初始值，不用考虑空值情况
+- 零值机制：天生就有初始值，不用考虑空值情况
 
 ### 命令
 
@@ -38,8 +39,6 @@ go build -o "***.exe"
 go run main.go
 go install
 ```
-
-
 
 ### 变量
 
@@ -635,15 +634,13 @@ func FormatUint(i uint64, base int) string
 func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 ```
 
-# 3、异常
+# 3、异常机制
 
 >   go中追求简洁优雅，使用多返回值来返回错误解决异常情况。只有在除数为零时，才会真正的使用异常机制，`defer`、`panic`、`recover`
 
 底层实现看[这篇文章](https://blog.csdn.net/shidantong/article/details/106341159)
 
 >   调用 defer 关键字会立刻对函数中引用的外部参数进行拷贝
-
-
 
 # 4、Golang第三方包
 
@@ -685,53 +682,3 @@ type Handler interface {
 
 这是Golang实现WebService最基础的接口，通过实现其方法来
 
-
-
-
-
-
-
-
-
-
-
-# 项目
-
-api/http/v1： `handler.go`定义uri与代码的映射、入参校验，调用`Service层`的逻辑写在这里面；`validation.go`定义入参校验的结构体
-
-context：`config.go`、`context,go`配置文件
-
-domain：`domain.go`实现`interface.go`，
-
-microservice：未知
-
-model：未知
-
-router：路由层，程序启动时初始化用到的`路由层`
-
-service：`service.go`实现`interface.go`，service.go里写逻辑调用的其他模块的一个service结构体，实现调用`数据层`的所有逻辑，数据层包含`domain`和`entity`两部分，分别代表DAO层和Entity层，把domain下来操作数据库，得到entity，entity来获取数据库实例中具体信息
-
->   总结：handle层→service层→domain层
-
-
-
-# 命名规范与开发规范
-
-## 命名
-
-### 文件命名
-
-文件命名一律采用小写，不用驼峰式，尽量见名思义，看见文件名就可以知道这个文件下的大概内容。
-其中测试文件以`test.go`结尾，除测试文件外。
-
-举例：
-
->domain.go
->
->workflow.go
->
->stringutils.go
-
-### 包命名
-
-包名使用小写，
