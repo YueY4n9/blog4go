@@ -5,6 +5,8 @@ tags:
 - Git
 ---
 
+<!--more-->
+
 把之前学习的GIT操作总结整理一下
 
 ## 基本操作
@@ -220,6 +222,21 @@ git push -u origin master
 
 那么能具体介绍一下吗？
 
-OK！
+### git rebase相关
 
-现在假设`origin/master`分支是主分支，当前`origin/master`版本为`A`，那么我从`origin/master`拉下来的本地分支`local/master`的版本也是`A`，此时，同事小赵提交一次提交，合并到`origin/master`，使
+```shell
+git checkout -b [本地开发分支名] origin/[远程分支名] // 本地创建分支关联远端分支
+// 修改代码
+git add -A // 添加所有[新增][修改][删除]内容
+git commit -m "注释内容" // 预提交，进行lint检测
+git commit -m "注释内容" -n // 提交代码，保存本地分支
+git checkout [主分支] // 切换主分支
+git pull // 拉去主分支代码，此时本地主分支代码为最新代码，本地开发分支有所有修改的代码
+git checkout [本地开发分支] // 切回本地开发分支，准备rebase
+git rebase [主分支] -i HEAD~2 // 将当前分支合并提交到目标分支
+// rebase过程可能会出现冲突，解决冲突后继续rebase过程
+git rebase [主分支] --continue // 继续rebase过程
+git push // 推送远端
+```
+
+##### 

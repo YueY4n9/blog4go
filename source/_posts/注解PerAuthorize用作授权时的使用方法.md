@@ -1,9 +1,11 @@
 ---
-title: PerAuthorize注解的作用作授权时的使用方法
+title: PerAuthorize注解
 date: 2020-08-14 10:14:07
 tags:
 - Spring
 ---
+
+<!--more-->
 
 @PerAuthorizr 这个注解我相信很多不使用SpringSecurity的小伙伴都不是很了解。
 使用他的初衷是最近需要做一个对授权的客户做判断，让他买了哪些模块的代码才能使用哪些模块的代码，需要进行一波模块过滤。

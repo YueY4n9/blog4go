@@ -1,9 +1,15 @@
 ---
-title: MongoDB
+title: MongoDB笔记
 date: 2020-08-27 16:29:24
+categories:
+- 笔记
 tags:
 - MongoDB
 ---
+
+>   MongoDB的一些基本操作，只适用于日常开发，深入了解MongoDB请略过本文
+
+<!--more-->
 
 # Mongo数据库操作
 
