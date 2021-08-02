@@ -7,231 +7,132 @@ tags:
 
 <!--more-->
 
-把之前学习的GIT操作总结整理一下
+把之前学习的Git操作总结整理一下
 
 ## 基本操作
 
-### 下载代码
+### 初始化仓库
 
+```shell
+git init -- 在当前目录下初始化一个git仓库, 如果是基本项目开发基本用不到这个命令
 ```
+
+### 克隆代码
+
+```shell
 git colne <url>
-
-eg：git clone https://git.gitedit.com:8081/******
-123
 ```
 
-### 拉代码
+### 添加工作区文件到暂存区
 
+```shell
+git add <fileName> -- 指定一个文件添加到暂存区
+git add . -- 常用, 将当前目录下的所有改动的文件添加到暂存区
 ```
-git pull
-1
+
+>   工作区：项目目录下除了`.git`文件夹以外的区域，简单来说就是你的项目文件区域
+
+### 查看工作状态
+
+```shell
+git status -- 查看当前工作区和暂存区的文件状态
 ```
 
-### 冲突解决
+### 提交暂存区文件到本地仓库
 
-```
-流程：暂存(压栈)->拉取代码->释放代码（弹栈）->手动合并代码
-如果本地代码与线上代码有冲突，git pull 是会报错，如：error: Your local changes to '-----' would be overwritten by merge. Aborting.Please, commit your changes or stash them before you can merge.
-
-这时，需先将本地代码暂存（压栈）:==暂存==会将代码恢复到上一次拉取的版本。
-git stash
-
-之后：拉取代码
-git pull
-
-弹栈:将之前暂存（压栈的代码）==取出==
-git stash pop
-
-最后：==手动合并代码==
-查看代码状态：
-git status
-# On branch master
-# Changes to be committed:  （绿色）(已经在stage区, 等待添加到HEAD中的文件)
-# (use "git reset HEAD <file>..." to unstage)
-#
-#modified: hello.py
-#
-# Changes not staged for commit: （红色）(有修改, 但是没有被添加到stage区的文件)
-# (use "git add <file>..." to update what will be committed)
-# (use "git checkout -- <file>..." to discard changes in working directory)
-#
-#modified: main.py
-#
-# Untracked files:（红色）(没有tracked过的文件, 即从没有add过的文件)
-# (use "git add <file>..." to include in what will be committed)
-1234567891011121314151617181920212223242526272829
+```shell
+git commit -m "本次提交的描述内容"
 ```
 
 ### 版本回退
 
-```
-git reset 
-
-版本回退（建议加上––hard参数，git支持无限次后悔）
-
-回退到上一个版本：git reset ––hard HEAD^
-
-回退到上上一个版本：git reset ––hard HEAD^^
-
-回退到上N个版本：git reset ––hard HEAD~N（N是一个整数）
-
-回退到任意一个版本：git reset ––hard 版本号（版本号用7位即可）
-
-重点：git reset 可以清空暂存区（git add 暂存的文件变为 modify状态）
-12345678910111213
+```shell
+git reset [--soft | --mixed | --hard ] [HEAD]-- 将暂存区的文件取消暂存
 ```
 
-### 提交代码
+>   `--mixed`为默认参数，重置暂存区的文件与上一次提交保持一致，工作区内容不变。可以理解成把工作区的文件和上次一提交的文件重新比对。效果上就像把暂存区的文件重新拿到工作区。
+>
+>   `--soft`为回退到上一个版本。
+>
+>   `--hard`为撤销工作区中所有未提交的内容，将暂存区和工作区都回到上一次版本，并删除之前的所有信息。就把这个参数理解成回到某个版本"最初的样子"。效果上就像时间回溯到了上一个版本提交之前，重新开发上一个版本一样。
 
+>   其实`git reset`操作用好了还是挺有用的，比如你当前项目改了一堆没用的地方，你都不想要了，就可以：
+>
+>   `git reset --hard HEAR`将当前工作区和暂存区恢复成当前版本"最初的样子"，本地代码瞬间全没了！妙~~~啊！(\狗头)
+
+### 拉取代码
+
+```shell
+git pull
 ```
-流程：暂存代码->提交到本地仓库->推送到远端分支
 
-==暂存代码==：所有变化提交到暂存区
-暂存所有： git add .
-暂存目录下文件：git add <url>
+### 推送本地仓库到远程仓库
 
-eg: git add src/
-
-暂存单个文件：git add <url>
-eg: git add src/view/plat/***.java
-
-==提交到本地仓库==：
-git commit -m "注释"
-
-==推送到远端分支==：
-git push <远程主机名> <本地分支名>:<远程分支名>
-
-简写：git push
-注：推送到远端默认分支（与本地代码相同分支）
-
-简写：git push origin master
-注：推送到远端的主线分支
-
-简写：git push origin dev
-注：推送到远端的dev分支
-12345678910111213141516171819202122232425
+```shell
+git push <远程主机名> <本地分支名>:<远程分支名> -- 最原始的命令
+git push -- 常用, 将当前分支推送到远程绑定的对应分支
 ```
 
 ## 分支操作
 
-### 查看所有分支（本地）
+### 查看本地所有分支
 
+```shell
+git branch -a -- 展示的列表中*符号说明当前代码处于哪个分支
 ```
-git branch
 
-输出内容：
-$ git branch
-  master
-* dev
+>   有时候远端的分支刷新了，你本地获取分支列表发现，"啊哈，分支列表和远端对应不上！"。这时候不用慌，是因为这个列表是保存在本地的，并不是从远端实时获取的，你需要做的就是刷新这个保存在本地的列表与远端同步：
 
-说明：*符号说明当前代码处于哪个分支
-12345678
+```shell
+git remote update origin -p -- 用远端来更新本地仓库
 ```
 
 ### 创建分支
 
-```
-git branch <name>
-
-eg:git branch dev
-
-说明：从当前分支创建了名称为 dev的分支。
-12345
+```shell
+git branch <name> -- 从当前分支创建了名称为 dev 的分支
 ```
 
 ### 切换分支
 
-```
-git checkout <name>
-
-eg:git checkout dev
-注：如有文件修改（新增文件不需要），切换分支前，需==暂存（git stash）或提交（git add . ->git commit -m ""）当前所有修改==。否则会报如下错误：
-
-$ git checkout master
-
-输出内容：
-error: Your local changes to the following files would be overwritten by checkout:
-        readme.txt
-Please commit your changes or stash them before you can switch branches.
-Aborting
-123456789101112
+```shell
+git checkout <branchName> -- 切换到本地目标分支
+git checkout -b <newBranchName> -- 从当前分支创建一个新分支并切换到新分支上
 ```
 
-### 创建+切换分支（拷贝分支）
-
-```
-git checkout -b <name>
-
-eg：git checkout -b dev
-
-说明：此操作为前两步的结合体，从当前分支创建新分支并且切换到新分支上。
-
-重点：此操作可以在任一分支的任何状态执行，执行成功之后，会将所有操作复制到新的分支上，并且会切换到新分支，如果新分支提交了修改，则原有分支的操作会撤销掉。
-1234567
-```
+>   `git checkout -b`操作可以在任一分支的任何状态执行，执行成功之后，会将所有操作复制到新的分支上，并且会切换到新分支，如果新分支提交了修改，则原有分支的操作会撤销掉。
 
 ### 合并某分支到当前分支
 
-```
-git merge <name>
-
-eg: git marge master
-
-注：有代码冲突需手动合并
-12345
+```shell
+git merge <branchName> -- 合并目标分支到当前分支
 ```
 
-### 删除分支
+### 删除本地分支
 
-```
-git branch -d <name>
-
-eg:git branch -d dev2
-123
+```shell
+git branch -d <branchName> -- 删除本地的目标分支
 ```
 
-### git 将本地项目提交到 git 远程仓库（远程仓库有空项目）
+### 重新定基操作
 
+```shell
+git rebase <branchName> -- 以本地目标分支为基准，合并代码
 ```
-1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库
-
-git init
-2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件
-
-git add .
-3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明
-
-git commit -m 'first commit'
-4、关联到远程库
-
-git remote add origin 你的远程库地址
-如：
-git remote add origin https://git.gitedit.com:8081/yuansiyu/gislibrary.git
-
-5、获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
-
-git pull origin master
-6、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。
-
-git push -u origin master
-```
-
-### rebase操作
 
 首先，说明一下rebase的作用：将目标分支的开发呈现一条直线，没有其他分支合并进来的节点，展示起来比较清晰。
 
-那么能具体介绍一下吗？
+那么能来点实际吗？——彳亍
 
-### git rebase相关
+git rebase相关流程
 
 ```shell
-git checkout -b [本地开发分支名] origin/[远程分支名] // 本地创建分支关联远端分支
-// 修改代码
-git add -A // 添加所有[新增][修改][删除]内容
-git commit -m "注释内容" // 预提交，进行lint检测
-git commit -m "注释内容" -n // 提交代码，保存本地分支
-git checkout [主分支] // 切换主分支
-git pull // 拉去主分支代码，此时本地主分支代码为最新代码，本地开发分支有所有修改的代码
+git checkout -b [本地开发分支名] origin/[远程分支名] -- 以目标分支为基准创建新分支并关联远端分支
+....... -- 修改代码的操作
+git add . -- 添加所有本次修改的文件添加到暂存区
+git commit -m "注释内容" -- 提交代码，保存本地分支
+git checkout [主分支] -- 切换分支，这个分支是目标基点的分支，简单来说，就是把现在的代码变成从"这个分支开始进行开发"的分支
+git pull -- 拉取主分支代码，此时本地仓库主分支代码为最新代码，本地开发分支有所有修改的代码
 git checkout [本地开发分支] // 切回本地开发分支，准备rebase
 git rebase [主分支] -i HEAD~2 // 将当前分支合并提交到目标分支
 // rebase过程可能会出现冲突，解决冲突后继续rebase过程
@@ -239,4 +140,76 @@ git rebase [主分支] --continue // 继续rebase过程
 git push // 推送远端
 ```
 
-##### 
+>   当然，如果你不愿意在提交代码的时候进行`rebase`操作，你可以将`git commit`暂存操作换乘`git stash`暂存，这将使你的`rebase`过程变的无比顺利
+
+## 常见问题
+
+### 提交代码
+
+当进行了一个阶段的开发工作之后，就会需要对代码进行`提交`操作，推送到远端分支，这部分工作当然可以交给IDE来完成，不过我更推荐使用命令的形式，来更多的理解`git的工作原理`
+
+>   流程：暂存代码`->`提交到本地仓库`->`推送到远端分支
+
+```shell
+# 1. 暂存代码：所有变化提交到暂存区
+git add .
+
+# 2. 提交到本地仓库，这步需要简介且明确的写出本次提交的所有内容
+git commit -m "本次提交内容的注释说明"
+
+# 3. 推送到远端分支
+git push <远程主机名> <本地分支名>:<远程分支名> # 如果你看过了前面的内容后，应该可以轻松地简化这行命令
+```
+
+### 解决冲突
+
+如果你充分理解了分支操作的本质，就会对冲突的解决应对自如，这里还是给出拉取代码时出现代码冲突情况的解决办法：
+
+>   流程：暂存(压栈)`->`拉取代码`->`释放代码（弹栈）`->`手动合并冲突代码
+
+```shell
+# 如果本地代码与线上代码有冲突，git pull 是会报错，如下：
+# error: Your local changes to '-----' would be overwritten by merge. Aborting.Please, commit your changes or stash them before you can merge.
+
+# 那么接下来，将是你需要做的几步：
+
+# 1. 将本地代码暂存，将工作区代码恢复到上一个版本
+git stash
+
+# 2. 拉取代码，将工作区代码更新为远端最新版本
+git pull
+
+# 3. 释放代码，也就是弹栈，将之前暂存的代码取出
+git stash pop
+
+# 4. 手动合并代码，如果使用ide工具进行，这项工作将变的更加容易
+
+# 5. 查看代码状态，会展示你这次合并代码过程中又对哪些文件进行了修改
+git status
+
+# 6. 之后就是继续进行开发工作，再对新代码进行add、commit操作啦~^v^
+```
+
+### 将本地项目提交到远程仓库（远程仓库是空项目）
+
+```shell
+# 1. 先进入项目文件夹
+cd 当前项目的完整路径
+
+# 2. 初始化这个目录变成git可以管理的仓库
+git init
+
+# 3. 暂存并提交代码
+git add .
+git commit -m "Init Project"
+
+# 4. 关联到远程库
+git remote add origin <你的远程库地址>
+
+# 5. 获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
+git pull origin master
+
+# 6. 把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。
+git push -u origin master
+```
+
