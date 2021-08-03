@@ -41,7 +41,7 @@ custom_file_path:
 #scheme: Pisces
 scheme: Gemini
 
-# 夜间模式切换功能
+# 夜间模式
 darkmode: false
 
 
@@ -946,12 +946,6 @@ vendors:
 
   # Canvas ribbon
   canvas_ribbon:
-
-  darkmode_js: https://cdn.jsdelivr.net/npm/darkmode-js/lib/darkmode-js.min.js
-
-# darkmode.js
-darkmode_js: 
-  enable: true
 
 # Assets
 # Accelerate delivery of static files using a CDN

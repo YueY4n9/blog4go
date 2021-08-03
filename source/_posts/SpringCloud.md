@@ -7,6 +7,10 @@ tags:
 - SpringCloud
 ---
 
+>   学习SpringCloud时参考的学习资料以及自己的理解和整理
+
+<!--more-->
+
 # Spring Cloud 微服务工具集v1.1
 
 - **版本: Hoxton SR6**
@@ -1915,4 +1919,8 @@ public class UrlFilter  implements Filter {
 # 6.消息总线:         Bus
 	作用: 用来通过消息中间件将所有微服务连接到一起,利用广播模型实现配置自动刷新机制
 ```
+
+参考资料：
+
+[编程不良人之学习SpringCloud](https://www.bilibili.com/video/BV1S5411c7hM)
 

@@ -4,6 +4,8 @@ date: 2020-08-18 11:07:33
 tags:
 ---
 
+>   Java底层调用Servlet中HttpServletRequest的原理和常用函数
+
 <!--more-->
 
 ### HttpServletRequest 详解
