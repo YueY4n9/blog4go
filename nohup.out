@@ -1,0 +1,21 @@
+INFO  Validating config
+INFO  ==================================
+  ███╗   ██╗███████╗██╗  ██╗████████╗
+  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝
+  ██╔██╗ ██║█████╗   ╚███╔╝    ██║
+  ██║╚██╗██║██╔══╝   ██╔██╗    ██║
+  ██║ ╚████║███████╗██╔╝ ██╗   ██║
+  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝
+========================================
+NexT version 8.4.0
+Documentation: https://theme-next.js.org
+========================================
+INFO  Start processing
+INFO  Hexo is running at http://localhost:80 . Press Ctrl+C to stop.
+(node:36721) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:36721) Warning: Accessing non-existent property 'column' of module exports inside circular dependency
+(node:36721) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency
+(node:36721) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency
+(node:36721) Warning: Accessing non-existent property 'column' of module exports inside circular dependency
+(node:36721) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency
