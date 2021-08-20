@@ -677,3 +677,11 @@ type Handler interface {
 
 这是Golang实现WebService最基础的接口，通过实现其方法来
 
+
+
+# Golang的编译过程
+
+1.  编译器在执行完语法分析之后会输出一个抽象语法树
+
+
+
