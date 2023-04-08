@@ -2,6 +2,7 @@
 title: Dangling meta character ‘+‘ near index 1异常
 date: 2020-12-15 15:16:04
 tags:
+  - java
 ---
 
 >   Java引用MongoTemplate操作时，报错Dangling meta character ‘+’ near index 1异常的原因和解决方法

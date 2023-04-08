@@ -1,10 +1,10 @@
 ---
-title: SpringCloud
+title: learn4springcloud
 date: 2021-05-26 14:26:51
 categories:
 - Java
 tags:
-- SpringCloud
+  - java
 ---
 
 >   学习SpringCloud时参考的学习资料以及自己的理解和整理

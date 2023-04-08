@@ -1,10 +1,9 @@
 ---
-title: Git基本命令总结
+title: learn4git
 date: 2020-08-27 16:42:54
-update: 2021-08-02
+update: 2021-08-02 16:42:54
 tags:
-- Git
-password: woshishui007
+  - git
 ---
 
 >   日常使用Git操作，随笔整理持续更新

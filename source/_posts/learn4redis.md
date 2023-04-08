@@ -1,10 +1,10 @@
 ---
-title: Redis笔记
+title: learn4redis
 date: 2021-05-26 14:26:39
 categories:
 - 笔记
 tags:
-- Redis
+   - redis
 ---
 
 >   整理Redis整体且全面的知识架构，一片文章了解Redis大部分基础应用

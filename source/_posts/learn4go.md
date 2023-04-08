@@ -1,8 +1,8 @@
 ---
-title: Golang
+title: learn4go
 date: 2021-06-16 22:18:18
 tags:
-- Golang
+  - go
 ---
 
 > 本文目的是记录我从 Java 开发转 Golang 开发的学习经历，分享一下学习过程来帮助想要 Java 转 Golang 的朋友一起进步一起学习！

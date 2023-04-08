@@ -2,7 +2,7 @@
 title: PerAuthorize 注解
 date: 2020-08-14 10:14:07
 tags:
-- Spring
+  - java
 ---
 
 > 介绍 PerAuthorize 注解授权情况下的使用
