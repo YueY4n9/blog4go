@@ -3,7 +3,6 @@
 ```shell
 hexo s -p 80
 ```
-
 清除缓存文件
 ```shell
 hexo clean
@@ -12,7 +11,11 @@ hexo clean
 ```shell
 hexo new "A new article"
 ```
-基本流程
+本地调试
 ```shell
-hexo clean & hexo s & hexo g & hexo d
+make dev
+```
+线上部署
+```shell
+make deploy
 ```

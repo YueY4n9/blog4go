@@ -5,7 +5,7 @@ tags:
 - Golang
 ---
 
-> 本文目的是记录我从Java开发转Golang开发的学习经历，分享一下学习过程来帮助想要Java转Golang的朋友一起进步一起学习！
+> 本文目的是记录我从 Java 开发转 Golang 开发的学习经历，分享一下学习过程来帮助想要 Java 转 Golang 的朋友一起进步一起学习！
 
 <!--more--> 
 

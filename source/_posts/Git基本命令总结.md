@@ -4,6 +4,7 @@ date: 2020-08-27 16:42:54
 update: 2021-08-02
 tags:
 - Git
+password: woshishui007
 ---
 
 >   日常使用Git操作，随笔整理持续更新
