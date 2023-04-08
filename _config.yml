@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://yuey4n9.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -97,28 +97,17 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Next
+theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@github.com:YueY4n9/yueyang.github.io.git
+  branch: master
 
 search:
   path: search.xml
   field: all
   content: true
   limit: 9999
-
-# 看板娘功能
-live2d:
-    enable: true
-    scriptFrom: local
-    model: 
-        use: live2d-widget-model-haruto #模型选择
-    display: 
-        position: right  #模型位置
-        width: 150       #模型宽度
-        height: 300      #模型高度
-    mobile: 
-        show: true      #是否在手机端显示
