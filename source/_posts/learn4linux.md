@@ -1,6 +1,6 @@
 ---
 title: learn4linux
-date: 2023-04-08 17:14:02
+date: 2022-05-01 17:14:02
 tags:
   - linux
 ---

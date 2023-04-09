@@ -1,11 +1,11 @@
 ---
-title: 学习笔记
+title: learn4java
 date: 2021-03-19 14:23:54
 tags:
   - java
 ---
 
-> 文章着重点在于基础点细节的总结和解析，绝大部分代码都是上的源码和核心代码，对于原理的实现给出定义，需要配合自己动手写代码和动脑理解和分析来得出实际的理解，本文疏漏的地方可以在留言区给我留言，欢迎指正和技术讨论！
+> 文章记录服务端开发小白的 Java 学习过程
 
 <!--more-->
 
@@ -57,7 +57,6 @@ tags:
 
 - char/16
 
-
 #### 缓存池
 
 - new Integer(123)  每次都创建新的对象；
@@ -74,8 +73,7 @@ tags:
 
 - Boolean values true and false。
 
-- Character int the range \u0000 to \u007F  （符号、数字、字母）
-
+- Character int the range \u0000 to \u007F （符号、数字、字母）
 
 #### String
 
@@ -87,11 +85,13 @@ String 被 final 声明，因此不可被继承。
 
 1. 缓存 hash 值
 
-   因为 String 的 hash 经常被使用，比如 HashMap 的 Key，不可变可以使 hash 值不变，只需要进行一次 hash 计算。
+   因为 String 的 hash 经常被使用，比如 HashMap 的 Key，不可变可以使 hash 值不变，只需要进行一次 hash
+   计算。
 
 2. String Pool 需要
 
-   如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。
+   如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用
+   String Pool。
 
 3. 安全性
 
@@ -103,15 +103,15 @@ String 被 final 声明，因此不可被继承。
 
 1. 可变性
 
-   - String 不可变
+    - String 不可变
 
-   - StringBuffer、StringBuilder 可变
+    - StringBuffer、StringBuilder 可变
 
 2. 线程安全
 
-   - String 不可变，所以线程安全
-   - StringBuilder 线程不安全
-   - StringBuffer 线程安全，内部使用 synchronized 进行同步
+    - String 不可变，所以线程安全
+    - StringBuilder 线程不安全
+    - StringBuffer 线程安全，内部使用 synchronized 进行同步
 
 ##### String.intern()
 
@@ -193,7 +193,7 @@ protected void finalize() throws Throwable {}
 
 #### 异常
 
- [异常机制详解](https://pdai.tech/md/java/basic/java-basic-x-exception.html)
+[异常机制详解](https://pdai.tech/md/java/basic/java-basic-x-exception.html)
 
 ![img](C:%5CUsers%5CYueYang%5CDocuments%5CGitHub%5CStudyNote%5Cimg%5CPPjwP.png)
 
@@ -263,7 +263,8 @@ public <T> T getObject(Class<T> c){
 }
 ```
 
-说明一下，定义泛型方法时，必须在返回值前边加一个`<T>`，来声明这是一个泛型方法，持有一个泛型`T`，然后才可以用泛型T作为方法的返回值。
+说明一下，定义泛型方法时，必须在返回值前边加一个`<T>`，来声明这是一个泛型方法，持有一个泛型`T`
+，然后才可以用泛型T作为方法的返回值。
 
 #### 注解
 
@@ -282,10 +283,6 @@ public <T> T getObject(Class<T> c){
 7. Concurrent Accumulators
 8. Parallel operations
 9. PermGen Error Removed
-
-
-
-
 
 ## 1.2	Java 集合框架
 
@@ -321,7 +318,8 @@ public <T> T getObject(Class<T> c){
 public void ensureCapacity(int minCapacity)
 ```
 
-数组进行扩容时，会将老数组的元素重新拷贝一份到新数组，每次数组增加容量为原容量的 1.5 倍，这种操作代价很高，所以应尽量避免数组扩容，可以采用手动调用 ensureCapacity() 方法或者初始化时指定数组容量大小。
+数组进行扩容时，会将老数组的元素重新拷贝一份到新数组，每次数组增加容量为原容量的 1.5
+倍，这种操作代价很高，所以应尽量避免数组扩容，可以采用手动调用 ensureCapacity() 方法或者初始化时指定数组容量大小。
 
 ##### Vector
 
@@ -329,9 +327,11 @@ public void ensureCapacity(int minCapacity)
 
 ##### LinkedList
 
-基于双向链表实现，查询效率比 ArrayList 低，但可以快速在链表中间插入和删除元素。LinkedList 还可以用作栈、队列、双向队列。
+基于双向链表实现，查询效率比 ArrayList 低，但可以快速在链表中间插入和删除元素。LinkedList
+还可以用作栈、队列、双向队列。
 
-LinkedList 同时实现了 List 和 Deque 接口，所以说既可以看做是一个列表，可以以看做是一个队列。当你需要使用栈时，还可以当做栈来使用，因为 Java 官方已经不推荐使用 Stack 了，当然，现在使用栈时更推荐使用 ArrayDeque，它比 LinkedList 当做栈使用时效率更高。
+LinkedList 同时实现了 List 和 Deque 接口，所以说既可以看做是一个列表，可以以看做是一个队列。当你需要使用栈时，还可以当做栈来使用，因为
+Java 官方已经不推荐使用 Stack 了，当然，现在使用栈时更推荐使用 ArrayDeque，它比 LinkedList 当做栈使用时效率更高。
 
 #### Queue
 
@@ -343,13 +343,12 @@ LinkedList 同时实现了 List 和 Deque 接口，所以说既可以看做是�
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, java.io.Serializable
 ```
 
-#####  PriorityQueue
+##### PriorityQueue
 
-优先队列，基于堆结构实现。优先队列的作用是每次取出的元素都是队列中权值最小的（ Java 中的优先队列取权值最小的，C++ 中的优先队列取权值最大的）。
+优先队列，基于堆结构实现。优先队列的作用是每次取出的元素都是队列中权值最小的（ Java 中的优先队列取权值最小的，C++
+中的优先队列取权值最大的）。
 
 小顶堆。
-
-
 
 #### Map
 
@@ -385,30 +384,30 @@ HashMap的查询时间复杂度 O(1)。
 
    底层存储结构方面：
 
-   - Stack 长度为 10 的数组；
+    - Stack 长度为 10 的数组；
 
-   - ArrayDeque 长度为 16 的数组；
+    - ArrayDeque 长度为 16 的数组；
 
-   - LinkedList 链表。
+    - LinkedList 链表。
 
    线程安全方面：
 
-   - Stack 线程安全
-   - ArrayDeque 线程不安全
-   - LinkedList 线程不安全
+    - Stack 线程安全
+    - ArrayDeque 线程不安全
+    - LinkedList 线程不安全
 
    性能选择方面：
 
-   - 需要线程同步的话，使用 Collections.synchronizedxxx() 讲ArrayDeque 或 LinkedList 转换成线程安全的。
-   - 频繁插入删除，使用 LinkedList。
-   - 频繁随机访问，使用ArrayDeque。
-   - 未知初始数据容量，使用 LinkedList。
+    - 需要线程同步的话，使用 Collections.synchronizedxxx() 讲ArrayDeque 或 LinkedList 转换成线程安全的。
+    - 频繁插入删除，使用 LinkedList。
+    - 频繁随机访问，使用ArrayDeque。
+    - 未知初始数据容量，使用 LinkedList。
 
 2. 栈和队列
 
-   Java 中有 Stack 的类，没有 Queue 的类（ Queue 是接口）。当使用栈时，Java 官方已经不推荐使用 Stack 了，而是使用效率更高的 ArrayDeque。既然 Queue 只是一个接口，当需要使用队列时，首选 ArrayDeque（次选 LinkedList）。
-
-
+   Java 中有 Stack 的类，没有 Queue 的类（ Queue 是接口）。当使用栈时，Java 官方已经不推荐使用 Stack
+   了，而是使用效率更高的 ArrayDeque。既然 Queue 只是一个接口，当需要使用队列时，首选 ArrayDeque（次选
+   LinkedList）。
 
 ## 1.3	Java 多线程与并发
 
@@ -424,19 +423,17 @@ HashMap的查询时间复杂度 O(1)。
 
 3. 死锁产生的四个必要条件
 
-   - 互斥条件
-   - 请求保持
-   - 不可剥夺
-   - 环路等待
+    - 互斥条件
+    - 请求保持
+    - 不可剥夺
+    - 环路等待
 
 4. 预防死锁的方式
 
-   - 资源一次性分配（破坏请求条件）
-   - 不能一次性得到所有资源，则一个资源也不分配（破坏保持条件）
-   - 可剥夺资源（破坏不可剥夺）
-   - 资源有序分配法
-
-
+    - 资源一次性分配（破坏请求条件）
+    - 不能一次性得到所有资源，则一个资源也不分配（破坏保持条件）
+    - 可剥夺资源（破坏不可剥夺）
+    - 资源有序分配法
 
 ### 线程池
 
@@ -490,12 +487,6 @@ Excutors.newSingleThreadPool(); // 单线程池
      */
     public static class DiscardPolicy implements RejectedExecutionHandler {..}
 ```
-
-
-
-
-
-
 
 ### CAS机制
 
@@ -631,45 +622,41 @@ javap -verbose SynchronizedDemo
 
 作用：保证可见性
 
-
-
-
-
-
-
 ### 相关文章
 
 #### Java 并发的理论知识
 
 - 多线程的出现是要解决什么问题？
 
-  众所周知，IO 设备、内存、CPU 之间速度有很大差异，为了更完全的使用 CPU 的高性能，平衡三者之间的速度差异，CPU、操作系统、编译程序都做出了贡献：
+  众所周知，IO 设备、内存、CPU 之间速度有很大差异，为了更完全的使用 CPU
+  的高性能，平衡三者之间的速度差异，CPU、操作系统、编译程序都做出了贡献：
 
-  - CPU 增加缓存，平衡了 CPU 与内存的速度差异。导致可见性问题
-  - 操作系统增加了线程、进程，复用CPU，平衡了 CPU 与 IO 设备的速度差异。导致了原子性问题
-  - 编译程序优化指令执行次序，使缓存合理利用。导致有序性问题
+    - CPU 增加缓存，平衡了 CPU 与内存的速度差异。导致可见性问题
+    - 操作系统增加了线程、进程，复用CPU，平衡了 CPU 与 IO 设备的速度差异。导致了原子性问题
+    - 编译程序优化指令执行次序，使缓存合理利用。导致有序性问题
 
-- 线程不安全是指什么? 
+- 线程不安全是指什么?
 
   线程不安全指的是多个线程对共享数据进行操作，会导致多次相同操作的结果不同。
 
 - 并发出现线程不安全的本质什么? 可见性，原子性，有序性
 
-  - 可见性：CPU 缓存引起的
+    - 可见性：CPU 缓存引起的
 
-  - 原子性：分时复用问题
+    - 原子性：分时复用问题
 
-    经典的**转账问题**：比如从账户A向账户B转1000元，那么必然包括2个操作：从账户A减去1000元，往账户B加上1000元。
+      经典的**转账问题**：比如从账户A向账户B转1000元，那么必然包括2个操作：从账户A减去1000元，往账户B加上1000元。
 
-    试想一下，如果这2个操作不具备原子性，会造成什么样的后果。假如从账户A减去1000元之后，操作突然中止。然后又从B取出了500元，取出500元之后，再执行 往账户B加上1000元 的操作。这样就会导致账户A虽然减去了1000元，但是账户B没有收到这个转过来的1000元。
+      试想一下，如果这2个操作不具备原子性，会造成什么样的后果。假如从账户A减去1000元之后，操作突然中止。然后又从B取出了500元，取出500元之后，再执行
+      往账户B加上1000元 的操作。这样就会导致账户A虽然减去了1000元，但是账户B没有收到这个转过来的1000元。
 
-  - 有序性：重排序引起
+    - 有序性：重排序引起
 
 - JAVA是怎么解决并发问题的: JMM(Java内存模型)
 
   https://www.infoq.cn/minibook/java_memory_model
 
-### 
+###    
 
 ## 1.4	Java IO/NIO/AIO
 
@@ -700,7 +687,8 @@ Java(TM) SE Runtime Environment (build 1.8.0_281-b09)
 Java HotSpot(TM) 64-Bit Server VM (build 25.281-b09, mixed mode)
 ```
 
-JDK1.8的默认值是UseParallelGC，打开此开关后，使用`新生代（Parallel Scavenge）`，`老年代（Ps MarkSweep）`的收集器组合进行内存回收。
+JDK1.8的默认值是UseParallelGC，打开此开关后，使用`新生代（Parallel Scavenge）`，`老年代（Ps MarkSweep）`
+的收集器组合进行内存回收。
 
 `新生代收集器（Parallel Scavenge）`是采用标记复制算法、多线程模型进行垃圾收集。
 
@@ -770,10 +758,6 @@ JVM参数中添加：`-Xloggc : gc.log`
     }
 ```
 
-
-
-
-
 -----
 
 # 3	数据库
@@ -786,20 +770,20 @@ JVM参数中添加：`-Xloggc : gc.log`
 
    当连接数据库时：
 
-   - 验证账号密码，验证访问权限
-   - 检查进程是否有空余
-   - 检查数据库负载是否严重
-   - 管理器花一段时间来获取资源
-   - 管理器发送查询语句给查询管理器
-   - 得到数据后保存到缓冲区，向你发送数据
+    - 验证账号密码，验证访问权限
+    - 检查进程是否有空余
+    - 检查数据库负载是否严重
+    - 管理器花一段时间来获取资源
+    - 管理器发送查询语句给查询管理器
+    - 得到数据后保存到缓冲区，向你发送数据
 
 2. 查询管理器
 
-   - 查询解析器：解析，并判断是否合法
-   - 查询重写器：预优化，避免不必要的计算，给优化器提供最佳解决方案
-   - 统计
-   - 查询优化器
-   - 
+    - 查询解析器：解析，并判断是否合法
+    - 查询重写器：预优化，避免不必要的计算，给优化器提供最佳解决方案
+    - 统计
+    - 查询优化器
+    -
 
 3. 数据管理器
 
@@ -828,12 +812,12 @@ JVM参数中添加：`-Xloggc : gc.log`
 
 ### 事务的隔离级别
 
-|                事务隔离级别 | 脏读 | 不可重复读 | 幻读 |
-| :-----------: | :--: | :--------: | :--: |
-| 读未提交（read-uncommited）<br>（可以读取到未提交的数据） |  是  |     是     |  是  |
-| 读提交（read-commited）<br>（） |  否  |     是     |  是  |
-| 可重复读（repeatable-read） |  否  |     否     |  是  |
-|     串行化（seriallizable） |  否  |     否     |  否  |
+|                 事务隔离级别                 | 脏读 | 不可重复读 | 幻读 |
+|:--------------------------------------:|:--:|:-----:|:--:|
+| 读未提交（read-uncommited）<br>（可以读取到未提交的数据） | 是  |   是   | 是  |
+|        读提交（read-commited）<br>（）        | 否  |   是   | 是  |
+|         可重复读（repeatable-read）          | 否  |   否   | 是  |
+|           串行化（seriallizable）           | 否  |   否   | 否  |
 
 **总结**：
 
@@ -844,19 +828,15 @@ JVM参数中添加：`-Xloggc : gc.log`
 
 ### 事务的传播机制
 
-|                             类型                             |                             说明                             |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-|           PROPAGATION_REQUIRED<br/>（必须是事务）            | 如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。 |
-|       PROPAGATION_SUPPORTS<br>（支持事务，没有就算了）       |     支持当前事务，如果当前没有事务，就以非事务方式执行。     |
-|    PROPAGATION_MANDATORY<br>（强制性，如果没有事务报错）     |        使用当前的事务，如果当前没有事务，就抛出异常。        |
-|  PROPAGATION_REQUIRES_NEW<br>（必须新建，原来有事务就等着）  |         新建事务，如果当前存在事务，把当前事务挂起。         |
-| PROPAGATION_NOT_SUPPORTED<br>（不支持事务，原来有事务就等着） |  以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。  |
-|      PROPAGATION_NEVER<br>（从不，不能以事务方式执行）       |       以非事务方式执行，如果当前存在事务，则抛出异常。       |
-|   PROPAGATION_NESTED<br>（嵌套，作为原事务中的一个子事务）   | 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。 |
-
-
-
-
+|                      类型                       |                             说明                             |
+|:---------------------------------------------:|:----------------------------------------------------------:|
+|       PROPAGATION_REQUIRED<br/>（必须是事务）        |      如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。       |
+|     PROPAGATION_SUPPORTS<br>（支持事务，没有就算了）      |                 支持当前事务，如果当前没有事务，就以非事务方式执行。                 |
+|    PROPAGATION_MANDATORY<br>（强制性，如果没有事务报错）    |                  使用当前的事务，如果当前没有事务，就抛出异常。                   |
+|  PROPAGATION_REQUIRES_NEW<br>（必须新建，原来有事务就等着）  |                   新建事务，如果当前存在事务，把当前事务挂起。                   |
+| PROPAGATION_NOT_SUPPORTED<br>（不支持事务，原来有事务就等着） |               以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。                |
+|      PROPAGATION_NEVER<br>（从不，不能以事务方式执行）      |                  以非事务方式执行，如果当前存在事务，则抛出异常。                  |
+|    PROPAGATION_NESTED<br>（嵌套，作为原事务中的一个子事务）    | 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。 |
 
 # 4	Spring
 
@@ -866,13 +846,9 @@ PCG中台
 
 9500
 
-
-
 Spring声明周期：
 
 Bean定义、实例化前、实例化、实例化后、属性注入、初始化前、初始化、初始化后、得到Bean。
-
-
 
 Spring三级缓存：
 
@@ -882,19 +858,11 @@ Spring三级缓存：
 
 三级缓存：AOP
 
-
-
 单例Bean：可以通过唯一ID来定位唯一实例的Bean对象
 
 单例池：单例Bean的实现方式，使用Map实现，key是beanName，value是bean对象
 
 单例模式：一种设计模式，程序运行期间只存在一个实例
-
-
-
-
-
-
 
 # 5	设计模式
 
@@ -970,14 +938,9 @@ public class StrategyPatternDemo {
 }
 ```
 
-
-
 **核心思想**：`抽象实现共性，接口实现特性`
 
 多使用行为特性的组合，少用共性抽象，这样更有弹性。
-
-
-
 
 
 ------
@@ -1010,23 +973,24 @@ public class StrategyPatternDemo {
 
 - [ ] 讲讲 cookie和session的区别、作用
 
-- [ ] linux常用命令：如何查看可用端口？lsof -i  和 netstat -aptn；如何查看日志？tail -f 、less、cat
+- [ ] linux常用命令：如何查看可用端口？lsof -i 和 netstat -aptn；如何查看日志？tail -f 、less、cat
 
 - [ ] 什么是幂等？什么情况下需要考虑幂等？我是怎么解决幂等的？
 
-- [ ] 多个线程同时读写，读线程的数量远远大于写线程，你认为应该如何解决 并发的问题？你会选择加什么样的锁？ReentrantReadWriteLock 读写锁；
+- [ ] 多个线程同时读写，读线程的数量远远大于写线程，你认为应该如何解决
+  并发的问题？你会选择加什么样的锁？ReentrantReadWriteLock 读写锁；
 
-- [ ] JAVA的AQS是否了解，它是⼲嘛的？AbstractQueuedSynchronizer 
+- [ ] JAVA的AQS是否了解，它是⼲嘛的？AbstractQueuedSynchronizer
 
 - [ ] 除了synchronized关键字之外，你是怎么来保障线程安全的？加锁啊，就上面那个问题
 
 - [ ] 什么时候需要加volatile关键字？它能保证线程安全吗？答案：在满足以下两个条件的情况下，volatile就能保证变量的线程安全问题：
 
-  1. 运算结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。
+    1. 运算结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。
 
-  2. 变量不需要与其他状态变量共同参与不变约束
+    2. 变量不需要与其他状态变量共同参与不变约束
 
-     能保证可见性、有序性，不能保证原子性，所以不能完全保证线程安全。
+       能保证可见性、有序性，不能保证原子性，所以不能完全保证线程安全。
 
 - [ ] 线程池内的线程如果全部忙，提交⼀个新的任务，会发⽣什么？队列全部 塞满了之后，还是忙，再提交会发⽣什么？
 

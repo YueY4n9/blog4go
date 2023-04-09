@@ -26,7 +26,7 @@ date: 2021-05-26 14:43:10
 - Go：`Go 1.20`,`gorutine`,`gin`,`gorm`,`etcd`,`migrate`
 - DB：`mysql`,`mongo`,`redis`,`达梦`
 - 安全架构：`shiro`,`jwt`
-- 其他：`docker`,`k8s`
+- 其他：`docker`,`k8s`,`java`
 
 # 工作经历
 
