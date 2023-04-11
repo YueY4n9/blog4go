@@ -28,6 +28,10 @@ tags:
 
 [GitHub clash for mac](https://github.com/yichengchen/clashX/releases)
 
+## `iCopy`
+
+[https://www.better365.cn/icopy.html](https://www.better365.cn/icopy.html)
+
 ## `OpenAI`
 
 ### `ChatGPT`
