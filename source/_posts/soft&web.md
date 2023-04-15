@@ -55,3 +55,7 @@ tags:
 
 - [Charles Download](https://www.charlesproxy.com/download/)
 - [Charles 破解](https://www.zzzmode.com/mytools/charles/)
+
+## `cursor`
+
+[https://www.cursor.so/](https://www.cursor.so/)
