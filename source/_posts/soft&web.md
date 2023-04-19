@@ -59,3 +59,8 @@ tags:
 ## `cursor`
 
 [https://www.cursor.so/](https://www.cursor.so/)
+
+## `VPN`
+
+[https://xn--30rs3bu7r87f.com/#/register?code=C4LrXXTf](https://xn--30rs3bu7r87f.com/#/register?code=C4LrXXTf)
+[https://xn--4gq62f52gdss.com/#/register?code=28YZMFza](https://xn--4gq62f52gdss.com/#/register?code=28YZMFza)
