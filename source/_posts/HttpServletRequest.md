@@ -2,10 +2,12 @@
 title: HttpServletRequest request 简单使用方法
 date: 2020-08-18 11:07:33
 tags:
-  - java
+
+- java
+
 ---
 
->   Java底层调用Servlet中HttpServletRequest的原理和常用函数
+> Java底层调用Servlet中HttpServletRequest的原理和常用函数
 
 <!--more-->
 
