@@ -1,5 +1,5 @@
 ---
-title: 软件备份
+title: soft&web
 date: 2021-07-07 16:12:51
 tags:
 ---
@@ -62,5 +62,14 @@ tags:
 
 ## `VPN`
 
-[https://xn--30rs3bu7r87f.com/#/register?code=C4LrXXTf](https://xn--30rs3bu7r87f.com/#/register?code=C4LrXXTf)
-[https://xn--4gq62f52gdss.com/#/register?code=28YZMFza](https://xn--4gq62f52gdss.com/#/register?code=28YZMFza)
+- [慈善机场](https://xn--30rs3bu7r87f.com/#/register?code=C4LrXXTf)
+- [一元机场](https://xn--4gq62f52gdss.com/#/register?code=28YZMFza)
+- [跑路云](https://paoluz.link/)
+
+## `Goland`
+
+[Goland 激活](https://www.ahhhhfs.com/30219)
+
+## `测网速`
+
+[https://fast.com/](https://fast.com/)
