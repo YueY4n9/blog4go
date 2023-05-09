@@ -45,6 +45,10 @@ tags:
 
 [GitHub openai-translator](https://github.com/yetone/openai-translator/releases)
 
+### `codewhisperer`
+
+[AI Code Generator - Amazon CodeWhisperer - AWS](https://www.google.com/aclk?sa=l&ai=DChcSEwiB0Ivqt7b-AhU6Fa0GHcCpCKQYABAAGgJwdg&sig=AOD64_0ru2tVCLoPSorENk8xs0OodzB_tg&q&adurl&ved=2ahUKEwiYy4Xqt7b-AhVBJUQIHX7HDc8Q0Qx6BAgHEAE)
+
 ## `Bing`
 
 ### `Bing AI 画图`
