@@ -73,7 +73,10 @@ tags:
 ## `Goland`
 
 [Goland 激活](https://www.ahhhhfs.com/30219)
+[Goland 翻译插件](https://github.com/YiiGuxing/TranslationPlugin)
 
 ## `测网速`
 
 [https://fast.com/](https://fast.com/)
+
+
