@@ -79,4 +79,11 @@ tags:
 
 [https://fast.com/](https://fast.com/)
 
+## Excalidraw
+
+https://excalidraw.com/
+
+## Whimsical 思维导图
+
+https://whimsical.com
 
