@@ -87,3 +87,10 @@ https://excalidraw.com/
 
 https://whimsical.com
 
+## Notion
+
+https://www.notion.so/
+
+## Paste
+
+https://pasteapp.io/
